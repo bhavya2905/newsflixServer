@@ -7,7 +7,7 @@ import articlesRoutes from "./routes/articlesRouter.js";
 import bodyParser from 'body-parser';
 
 import { fetchYoutubeData }  from "./youtube.js"
-
+const PORT =process.env.PORT || 5000;
 
 dotenv.config(); //initializing all env variables (wtevr written in dotenv)
 
@@ -30,7 +30,7 @@ try {
         const data = await fetchYoutubeData(id);
         res.send(data);
       });
-    app.listen( process.env.BASE_URL, ()=>{
+    app.listen( PORT, ()=>{
     console.log('server started')
 })
 
